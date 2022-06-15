@@ -6,7 +6,7 @@
   top: 30%;
   left: 0px;
   animation: bounce 1000ms ease-in-out 1s infinite,
-    fadeout 500ms ease-in 4s forwards;
+    fadeout 500ms ease-in 6s forwards;
   border-radius: 2px;
   color: #243a73;
 }

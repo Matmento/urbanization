@@ -2,6 +2,7 @@ body {
   background-color: #a5becc;
   font-family: roboto;
   font-size: 16px;
+  overflow: hidden; /* Hide scrollbars */
 }
 
 :root {
@@ -14,7 +15,10 @@ body {
   align-items: flex-end;
   height: calc(100vh - 2rem);
   gap: calc(var(--screenSize) / 18); /* This should be dynamic */
-  margin: 0 2rem 0 2rem;
+  margin: 0 0rem 0 0rem;
+
+  transform: scale(0.9);
+  transform-origin: bottom;
 }
 
 /*
@@ -71,7 +75,7 @@ body {
 }
 
 .housesquare {
-  width: 150px;
+  width: 140px;
   height: 19px;
   position: absolute;
   bottom: 1.4rem;
@@ -89,6 +93,101 @@ body {
   z-index: -1;
 }
 
+.sun {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  z-index: -3000;
+  stroke-width: 5px;
+  stroke-dasharray: 45;
+  stroke-dashoffset: 200;
+  animation: shimmer 50s infinite ease-in, rotation 200s infinite linear;
+  /* @keyframes | duration | easing-function | delay | iteration-count | direction | fill-mode | play-state | name */
+}
+
+@keyframes shimmer {
+  to {
+    stroke-width: 5px;
+    stroke-dasharray: 45;
+    stroke-dashoffset: 20;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.sky {
+  position: absolute;
+  z-index: -1;
+}
+
+.sky1 {
+  top: 10%;
+  left: -50%;
+  animation: animateCloud 90s linear 2s infinite;
+  /* @keyframes | duration | easing-function | delay | iteration-count | direction | fill-mode | play-state | name */
+}
+.sky2 {
+  top: 25%;
+  left: -10%;
+  animation: animateCloud 50s linear 20s infinite;
+}
+.sky3 {
+  top: 15%;
+  left: -20%;
+  animation: animateCloud 65s linear 40s infinite;
+}
+.sky4 {
+  top: 50%;
+  left: -40%;
+  animation: animateCloud 100s linear 5s infinite;
+}
+.sky5 {
+  top: 40%;
+  left: -50%;
+  animation: animateCloud 80s linear 30s infinite;
+}
+
+@keyframes animateCloud {
+  0% {
+    left: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    left: 100%;
+    transform: translateX(0%);
+  }
+}
+
+.sky6 {
+  top: 50%;
+  left: 20%;
+  animation: animateCloud2 120s linear forwards;
+}
+.sky7 {
+  top: 30%;
+  left: 70%;
+  animation: animateCloud2 90s linear forwards;
+}
+@keyframes animateCloud2 {
+  0% {
+    margin-left: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    margin-left: 100%;
+    transform: translateX(0%);
+  }
+}
+
 /*
  
    __  __          _ _                               _            
@@ -100,7 +199,7 @@ body {
  
 */
 
-@media screen and (max-width: 1070px) {
+@media screen and (max-width: 975px) {
   /* style changes when the screen gets smaller than "X" */
 
   .house {
@@ -167,7 +266,7 @@ body {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 585px) {
   /* style changes when the screen gets smaller than */
   .innersmallhouse {
     width: 150px;
@@ -177,7 +276,7 @@ body {
   }
   .house {
     width: 150px;
-    height: 773px;
+    height: 777px;
     animation: shake2 800ms cubic-bezier(0.36, 0.07, 0.19, 0.97) 800ms both;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
