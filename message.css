@@ -1,6 +1,6 @@
 .message {
   position: absolute;
-  background-color: hsl(0, 0%, 94%);
+  background-color: #f2ebe9;
   margin: 0rem 2rem 1rem 2rem;
   padding: 1rem;
   top: 30%;
@@ -9,6 +9,7 @@
     fadeout 500ms ease-in 6s forwards;
   border-radius: 2px;
   color: #243a73;
+  border: 2px solid #a5becc;
 }
 
 span {
